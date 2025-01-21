@@ -68,7 +68,10 @@ do {
 } while (!secp256k1.privateKeyVerify(privKey))
 
 // get the public key in a compressed format
-const pubKey = secp256k1.publicKeyCreate(privKey)
+const pubKey = secp256k1.publicKeyCreate(privKey, true)
+
+// get the public key in a uncompressed format
+const pubKey = secp256k1.publicKeyCreate(privKey, false)
 
 // sign the message
 const sigObj = secp256k1.ecdsaSign(msg, privKey)
